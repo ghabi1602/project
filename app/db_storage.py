@@ -1,10 +1,16 @@
 from flask_sqlalchemy import SQLAlchemy
-#initializing sqlalchemy
+# initializing sqlalchemy
+
 
 db = SQLAlchemy()
 
-def init_db():
+
+def init_db(app):
     """creates all instances and save to database"""
-    from models.student_model import STUDENT
-    from models.prof_model import PROFESSOR
-    db.create_all()
+    with app.app_context():
+        # Import models here to ensure they are registered with SQLAlchemy
+        from .models.student_model import STUDENT
+        from .models.prof_model import PROFESSOR
+
+        # Create all tables based on the models
+        db.create_all()

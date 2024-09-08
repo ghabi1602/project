@@ -1,6 +1,6 @@
-from base_model import BaseModel
 from flask_login import UserMixin
 from ..db_storage import db
+from .base_model import BaseModel
 
 
 class PROFESSOR(UserMixin, BaseModel):

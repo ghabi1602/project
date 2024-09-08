@@ -6,6 +6,6 @@ class BaseModel(db.Model):
     """base model to be inherited by child models"""
     __abstract__ = True
 
-    id = db.column(db.String(60), PRIMARY_KEY = True, default=lambda: str(uuid4()))
-    created_at = db.column(db.Datetime, default=datetime.utcnow)
-    updated_at = db.column(db.Datetime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    id = db.Column(db.String(60), primary_key=True, default=lambda: str(uuid4()))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
