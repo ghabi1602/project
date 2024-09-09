@@ -3,9 +3,9 @@ from ..db_storage import db
 from .base_model import BaseModel
 
 
-class PROFESSOR(UserMixin, BaseModel):
+class (UserMixin, BaseModel):
     __tablename__ = "professor"
-    fullname = db.Column(db.String(100), nullable=False)
+    fulPROFESSORlname = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
