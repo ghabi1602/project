@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from flask_login import login_required
+from flask_login import login_required, current_user
 from ..models.student_model import STUDENT
 from ..models.prof_model import PROFESSOR
 
@@ -47,7 +47,27 @@ def profs():
 def stds():
     """retrieves a list of students"""
     students = STUDENT.query.with_entities(STUDENT.fullname).all()
+    if not students:
+        return "Students not found", 404
     return render_template('students.html', students=students)
 
 
-@
+@bp.route('/prof_profile')
+@login_required
+def prof_profile():
+    """route to professor profile"""
+    professor = PROFESSOR.query.filter_by(id=current_user.id).first()
+    if not professor:
+        return "professor data not found", 404
+
+    return render_template('prof_profile.html', professor=professor)
+
+
+@bp.route('/std_profile')
+@login_required
+def std_profile():
+    """route to std profile"""
+    student = STUDENT.query.filter_by(id=current_user.id).first()
+    if not student:
+        return "Student data not found", 404
+    return render_template('std_profile.html', student=student)

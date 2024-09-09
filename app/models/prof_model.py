@@ -13,3 +13,4 @@ class PROFESSOR(UserMixin, BaseModel):
     Specialization = db.Column(db.String(300), nullable=False)
     expert_at = db.Column(db.String(300), nullable=False)
     years_of_experience = db.Column(db.Integer, nullable=False)
+    classes = db.relationship('CLASSES', backref='professor', lazy=True)
