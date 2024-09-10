@@ -5,12 +5,14 @@ from .base_model import BaseModel
 
 class PROFESSOR(UserMixin, BaseModel):
     __tablename__ = "professor"
-    fulPROFESSORlname = db.Column(db.String(100), nullable=False)
+    fullname = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    gender = db.Column(db.String(50), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     Specialization = db.Column(db.String(300), nullable=False)
     expert_at = db.Column(db.String(300), nullable=False)
     years_of_experience = db.Column(db.Integer, nullable=False)
+    hashed_password = db.Column(db.String(1000), nullable=True)
     classes = db.relationship('classes', backref='prof', lazy=True)
