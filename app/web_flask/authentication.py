@@ -1,11 +1,11 @@
 from ..db_storage import db
-from flask import Blueprint, render_template, url_for, request, redirect, flash
+from flask import Blueprint, render_template, url_for, request, redirect, flash, session
 from ..models.prof_model import PROFESSOR
 from ..models.student_model import STUDENT
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user, current_user
 
-bp = Blueprint('Auth', __name__, url_prefix='/auth')
+bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 #function that handles professor registration
 @bp.route('/register/prof', methods=["GET", "POST"])
@@ -100,6 +100,7 @@ def login():
                 flash('Login successful :)')
                 current_user.is_online = True
                 db.session.commit()
+                session['user_type'] = 'std'
                 return redirect(url_for('routes.std_dash'))
             else:
                 flash('Password is incorrect :(')
@@ -112,6 +113,7 @@ def login():
                 flash('Login successful :)')
                 current_user.is_online = True
                 db.session.commit()
+                session['user_type'] = 'prof'
                 return redirect(url_for('routes.prof_dash'))
             else:
                 flash('Password is incorrect :(')
