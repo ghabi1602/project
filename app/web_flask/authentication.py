@@ -52,7 +52,7 @@ def register_prof():
 def register_std():
     """student registration function"""
     if request.method == "POST":
-        fullname = request.form. get('fullname')
+        fullname = request.form.get('fullname')
         username = request.form.get('username')
         password = request.form.get('password')
         email = request.form.get('email')
@@ -83,3 +83,52 @@ def register_std():
         return redirect(url_for('login_std'))
 
     return render_template('register_std.html')
+
+
+# function that handles the login
+@bp.route('/login', methods=["GET", "POST"])
+def login():
+    """a function that handles the login procedure"""
+    if request.method == "POST":
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        std = STUDENT.query.filter_by(email=email).first()
+        if std:
+            if check_password_hash(std.password, password):
+                login_user(std)
+                flash('Login successful :)')
+                current_user.is_online = True
+                db.session.commit()
+                return redirect(url_for('routes.std_dash'))
+            else:
+                flash('Password is incorrect :(')
+                return redirect(url_for('login'))
+
+        prof = PROFESSOR.query.filter_by(email=email).first()
+        if prof:
+            if check_password_hash(prof.password, password):
+                login_user(prof)
+                flash('Login successful :)')
+                current_user.is_online = True
+                db.session.commit()
+                return redirect(url_for('routes.prof_dash'))
+            else:
+                flash('Password is incorrect :(')
+                return redirect(url_for('login'))
+
+        flash('Wrong Email :(')
+        return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+
+@bp.route('/logout', methods=["GET", "POST"])
+@login_required
+def logout():
+    """a route that handles a user logout"""
+    current_user.is_online = False
+    db.session.commit()
+    logout_user()
+    flash('Logout successful')
+    return redirect(url_for('routes.home'))
