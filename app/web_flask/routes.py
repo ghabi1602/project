@@ -2,6 +2,8 @@ from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from ..models.student_model import STUDENT
 from ..models.prof_model import PROFESSOR
+from ..models.course import CLASSES
+from ..models.enrollment import ENROLLMENT
 
 
 # Initialize a blueprint
@@ -39,6 +41,8 @@ def std_dash():
 def profs():
     """retrieves a list of professors"""
     professors = PROFESSOR.query.with_entities(PROFESSOR.fullname).all()
+    if not professors:
+        return "No professors found yet", 404
     return render_template('professors.html', professors=professors)
 
 
@@ -48,7 +52,7 @@ def stds():
     """retrieves a list of students"""
     students = STUDENT.query.with_entities(STUDENT.fullname).all()
     if not students:
-        return "Students not found", 404
+        return "No students found yet", 404
     return render_template('students.html', students=students)
 
 
@@ -56,18 +60,22 @@ def stds():
 @login_required
 def prof_profile():
     """route to professor profile"""
-    professor = PROFESSOR.query.filter_by(id=current_user.id).first()
-    if not professor:
-        return "professor data not found", 404
-
-    return render_template('prof_profile.html', professor=professor)
+    professor = PROFESSOR.query.get_or_404(current_user.id)
+    prof_class = CLASSES.query.filter_by(id=professor.id).all()
+    return render_template('prof_profile.html', professor=professor, prof_class=prof_class)
 
 
 @bp.route('/std_profile')
 @login_required
 def std_profile():
     """route to std profile"""
-    student = STUDENT.query.filter_by(id=current_user.id).first()
-    if not student:
-        return "Student data not found", 404
-    return render_template('std_profile.html', student=student)
+    student = STUDENT.query.get_or_404(current_user.id)
+    enrollments = ENROLLMENT.query.filter_by(student_id=student.id)
+    data = {}
+    if enrollments:
+        class_ids = [enrollment.class_id for enrollment in enrollments]
+        classes = CLASSES.query.filter(CLASSES.id.in_(class_ids)).all()
+        class_names = {cls.id: cls.name for cls in classes}
+        enrolled_classes = [class_names.get(enrollment.class_id) for enrollment in enrollments]
+        data['classes'] = enrolled_classes
+    return render_template('std_profile.html', student=student, data=data)
