@@ -89,7 +89,7 @@ def std_profile():
 @bp.route('/classes')
 @login_required
 def classes():
-    """route that retrieves a the list of available classes"""
+    """route that retrieves a list of available classes"""
     all_classes = CLASSES.query.all()
     if all_classes:
         data = []
