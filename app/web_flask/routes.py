@@ -90,6 +90,11 @@ def std_profile():
 @login_required
 def classes():
     """route that retrieves a list of available classes"""
+    user_type = "professor"
+    students = STUDENT.query(STUDENT.id).all()
+    if current_user.id in students:
+        user_type = "student"
+
     all_classes = CLASSES.query.all()
     if all_classes:
         data = []
@@ -105,5 +110,6 @@ def classes():
                 'number_of_students': num_std
             })
             data.append(class_data)
-        return render_template('classes.html', data=data)
+
+        return render_template('classes.html', data=data, user_type=user_type)
     return render_template('No_class.html')
