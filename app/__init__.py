@@ -4,6 +4,8 @@ from flask_login import LoginManager
 
 
 login_manager = LoginManager()
+
+
 def create_app():
     app = Flask(__name__, static_folder='./web_flask/static', template_folder='./web_flask/templates')
     app.config['SECRET_KEY'] = 'secret_key'
@@ -15,13 +17,13 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = '.web_flask.authentication.login'
 
-
     with app.app_context():
         from .web_flask import authentication
         from .web_flask import routes
+        from .api.v1 import api
         app.register_blueprint(authentication.bp)
         app.register_blueprint(routes.bp)
-
+        app.register_blueprint(api.bp)
 
     @login_manager.user_loader
     def load_user(user_id):
