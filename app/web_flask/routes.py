@@ -40,7 +40,7 @@ def std_dash():
 @login_required
 def profs():
     """retrieves a list of professors"""
-    professors = PROFESSOR.query.with_entities(PROFESSOR.fullname).all()
+    professors = PROFESSOR.query.all()
     if not professors:
         return "No professors found yet", 404
     return render_template('professors.html', professors=professors)
@@ -50,32 +50,60 @@ def profs():
 @login_required
 def stds():
     """retrieves a list of students"""
-    students = STUDENT.query.with_entities(STUDENT.fullname).all()
+    students = STUDENT.query.all()
     if not students:
         return "No students found yet", 404
-    return render_template('students.html', students=students)
+    data = []
+    for student in students:
+        std = {}
+        fullname = student.fullname
+        email = student.email
+        cls = student.classes
+        std.update({
+            'fullname': fullname,
+            'email': email,
+            'cls': cls
+        })
+        data.append(std)
+    return render_template('students.html', data=data)
 
 
-@bp.route('/prof_profile')
+@bp.route('/prof_dash/profile')
 @login_required
 def prof_profile():
     """route to professor profile"""
     professor = PROFESSOR.query.get_or_404(current_user.id)
-    prof_class = CLASSES.query.filter_by(id=professor.id).all()
-    return render_template('prof_profile.html', professor=professor, prof_class=prof_class)
+    prof_classes = professor.classes
+    return render_template('prof_profile.html', professor=professor, prof_classes=prof_classes)
 
 
-@bp.route('/std_profile')
+@bp.route('/std_dash/profile')
 @login_required
 def std_profile():
     """route to std profile"""
     student = STUDENT.query.get_or_404(current_user.id)
-    enrollments = ENROLLMENT.query.filter_by(student_id=student.id)
-    data = {}
-    if enrollments:
-        class_ids = [enrollment.class_id for enrollment in enrollments]
-        classes = CLASSES.query.filter(CLASSES.id.in_(class_ids)).all()
-        class_names = {cls.id: cls.name for cls in classes}
-        enrolled_classes = [class_names.get(enrollment.class_id) for enrollment in enrollments]
-        data['classes'] = enrolled_classes
-    return render_template('std_profile.html', student=student, data=data)
+    std_classes = student.classes
+    return render_template('std_profile.html', student=student, std_classes=std_classes)
+
+
+@bp.route('/classes')
+@login_required
+def classes():
+    """route that retrieves a the list of available classes"""
+    all_classes = CLASSES.query.all()
+    if all_classes:
+        data = []
+        for class_ in all_classes:
+            class_data = {}
+            name = class_.name
+            professor = PROFESSOR.query.get(class_.professor_id)
+            prof_name = professor.fullname if professor else "unknown"
+            num_std = ENROLLMENT.query.filter_by(class_id=class_.id).count()
+            class_data.update({
+                'name': name,
+                'prof_name': prof_name,
+                'number_of_students': num_std
+            })
+            data.append(class_data)
+        return render_template('classes.html', data=data)
+    return render_template('No_class.html')
