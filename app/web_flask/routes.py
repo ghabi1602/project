@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from ..models.student_model import STUDENT
-from ..models.prof_model import PROFESSOR
-from ..models.course import CLASSES
-from ..models.enrollment import ENROLLMENT
+from app.models.student_model import STUDENT
+from app.models.prof_model import PROFESSOR
+from app.models.course import CLASSES
+from app.models.enrollment import ENROLLMENT
 
 
 # Initialize a blueprint
-bp = Blueprint('routes', __name__)
+bp = Blueprint('routes', __name__, template_folder="templates", static_folder="static")
 
 
 @bp.route('/', strict_slashes=False)
@@ -113,3 +113,8 @@ def classes():
 
         return render_template('classes.html', data=data, user_type=user_type)
     return render_template('No_class.html')
+
+
+@bp.route('/signup')
+def signup():
+    render_template('singup.html')

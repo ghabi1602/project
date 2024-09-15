@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,7 +14,7 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <img src="imgs/tvss.png" alt="logo" class="logo">
+            <img src="static/imgs/tvss.png" alt="logo" class="logo">
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="#home" class="nav_link">Home</a>
@@ -54,7 +53,7 @@
                         <a href="" class="forgot_pw">Forgot password ?</a>
                     </div>
                     <button class="button">Login Now</button>
-                    <div class="login_signup">Don't have an account? <a href="singup.html" id="Signup">Signup</a></div>
+                    <div class="login_signup">Don't have an account? <a href="{{ url_for('routes.signup') }}" id="Signup">Signup</a></div>
                 </form>
             </div>
         </div>
@@ -69,14 +68,14 @@
             </div>
         </div>
         <div class="home-img">
-            <img src="imgs/14.png" alt="">
+            <img src="static/imgs/14.png" alt="">
         </div>
     </section>
 
     <section class="container">
         <div class="container-box">
             <div class="container-img">
-                <img src="imgs/27.jpg" alt="" style="height: 50px; width: 50px;">
+                <img src="static/imgs/27.jpg" alt="" style="height: 50px; width: 50px;">
             </div>
             <div class="container-text">
                 <h4>6K</h4>
@@ -85,7 +84,7 @@
         </div>
         <div class="container-box">
             <div class="container-img">
-                <img src="imgs/22.jpg" alt="" style="height: 50px; width: 50px;">
+                <img src="static/imgs/22.jpg" alt="" style="height: 50px; width: 50px;">
             </div>
             <div class="container-text">
                 <h4>6K</h4>
@@ -94,7 +93,7 @@
         </div>
         <div class="container-box">
             <div class="container-img">
-                <img src="imgs/26.jpg" alt="" style="height: 60px; width: 60px;">
+                <img src="static/imgs/26.jpg" alt="" style="height: 60px; width: 60px;">
             </div>
             <div class="container-text">
                 <h4>6K</h4>
@@ -103,7 +102,7 @@
         </div>
         <div class="container-box">
             <div class="container-img">
-                <img src="imgs/23.jpg" alt="" style="height: 50px; width: 50px;">
+                <img src="static/imgs/23.jpg" alt="" style="height: 50px; width: 50px;">
             </div>
             <div class="container-text">
                 <h4>6K</h4>
@@ -119,22 +118,22 @@
 
         <div class="categories-content">
             <div class="box">
-                <img src="imgs/p.jfif" style="height: 50px; width:50px">
+                <img src="static/imgs/p.jfif" style="height: 50px; width:50px">
                 <h3>Python Development</h3>
                 <p>2 Classes</p>
             </div>
             <div class="box">
-                <img src="imgs/angular.png" style="height: 50px; width:50px">
+                <img src="static/imgs/angular.png" style="height: 50px; width:50px">
                 <h3>Angular Development</h3>
                 <p>3 Classes</p>
             </div>
             <div class="box">
-                <img src="imgs/js.png" style="height: 50px; width:50px">
+                <img src="static/imgs/js.png" style="height: 50px; width:50px">
                 <h3>JS Development</h3>
                 <p>5 Classes</p>
             </div>
             <div class="box">
-                <img src="imgs/mysql.png" style="height: 50px; width:50px">
+                <img src="static/imgs/mysql.png" style="height: 50px; width:50px">
                 <h3>MySql Development</h3>
                 <p>2 Classes</p>
             </div>
@@ -150,7 +149,7 @@
         </div>
         <div class="classes-content">
             <div class="row">
-                <img src="imgs/30.jpg" alt="" >
+                <img src="static/imgs/30.jpg" alt="" >
                 <div class="classes-text">
                     <h5>5 persones</h5>
                     <h4>HTML CSS JS</h4>
@@ -170,7 +169,7 @@
                 </div>
             </div>
             <div class="row">
-                <img src="imgs/31.jpg" alt="">
+                <img src="static/imgs/31.jpg" alt="">
                 <div class="classes-text">
                     <h5>5 persones</h5>
                     <h4>Python</h4>
@@ -190,7 +189,7 @@
                 </div>
             </div>
             <div class="row">
-                <img src="imgs/32.jfif" alt="">
+                <img src="static/imgs/32.jfif" alt="">
                 <div class="classes-text">
                     <h5>5 persones</h5>
                     <h4>MySql</h4>
@@ -216,7 +215,7 @@
     </section>
     <section class="about" id="about">
         <div class="about-img">
-            <img src="imgs/33.jfif" alt="">
+            <img src="static/imgs/33.jfif" alt="">
         </div>
         <div class="about-text">
             <h2>Join Us a Mentor</h2>
@@ -228,7 +227,7 @@
     <section class="contact" id="contact">
         <div class="main-contact">
             <div class="contact-content">
-                <img src="imgs/tvss.png" alt="">
+                <img src="static/imgs/tvss.png" alt="">
                 <li><a href="#">Facebook</a></li>
                 <li><a href="#">Instagram</a></li>
                 <li><a href="#">Twitter</a></li>
@@ -250,6 +249,6 @@
         <p>@ 2024 Ghabi Abdessattar and Guesmi Asma. All rights reserved.</p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="static/script.js"></script>
 </body>
 </html>
