@@ -5,7 +5,7 @@ from app.models.student_model import STUDENT
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user, current_user
 
-bp = Blueprint('auth', __name__, url_prefix='/auth', template_folder="templates", static_folder="static")
+bp = Blueprint('auth', __name__, template_folder="templates", static_folder="static")
 
 #function that handles professor registration
 @bp.route('/register/prof', methods=["GET", "POST"])
