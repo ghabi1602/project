@@ -1,11 +1,11 @@
-from ..db_storage import db
+from app.db_storage import db
 from flask import Blueprint, render_template, url_for, request, redirect, flash, session
-from ..models.prof_model import PROFESSOR
-from ..models.student_model import STUDENT
+from app.models.prof_model import PROFESSOR
+from app.models.student_model import STUDENT
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user, current_user
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+bp = Blueprint('auth', __name__, url_prefix='/auth', template_folder="templates", static_folder="static")
 
 #function that handles professor registration
 @bp.route('/register/prof', methods=["GET", "POST"])
