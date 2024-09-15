@@ -42,7 +42,7 @@ def register_prof():
         db.session.add(new_prof)
         db.session.commit()
         flash('Successful Registration :)')
-        return redirect(url_for('login.prof'))
+        return redirect(url_for('routes.home'))
 
     return render_template('register_prof.html')
 

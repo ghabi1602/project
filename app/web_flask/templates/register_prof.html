@@ -12,10 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body style="background-image: url(static/imgs/15.jpg); background-size:cover">
+<body style="background-image: url(imgs/15.jpg); background-size:cover">
     <header class="header">
         <nav class="nav">
-            <img src="static/imgs/tvss.png" alt="logo" class="logo">
+            <img src="imgs/tvss.png" alt="logo" class="logo">
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="home.html" class="nav_link">Home</a>
@@ -29,61 +29,56 @@
     </header>
     <section class="container1">
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <form action="">
+            <form action="/register/prof", method="post">
                 <fieldset>
                     <legend>Your Cordinate</legend>
                     <table>
                         <tr>
                             <td><label for="">Full Name : </label></td>
-                            <td><input type="text" placeholder="Your Full Name" required></td>
+                            <td><input type="text" name="fullname" required></td>
                         </tr>
                         <tr>
                             <td><label for="">User Name :</label></td>
-                            <td><input type="text" placeholder="Your User Name" required></td>
+                            <td><input type="text" name="username" required></td>
                         </tr>
                         <tr>
                             <td><label for="">Mail :</label></td>
-                            <td><input type="email" placeholder="Your mail" required></td>
+                            <td><input type="email" name="email" required></td>
                         </tr>
                         <tr>
                             <td><label for="">Create password :</label></td>
-                            <td><input type="password" placeholder="password"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="">Confirm password :</label></td>
-                            <td><input type="password" placeholder="Confirm password" required></td>
-                        </tr>
+                            <td><input type="password" name="password" required></td>
                     </table>
-                    
+
                 </fieldset> <br> <br>
                 <fieldset>
                     <legend>About You</legend>
                     <table>
                         <tr>
                             <td> <label for="">Gender:</label></td>
-                            <td><input type="text"  placeholder="Your Gender" required></td>
+                            <td><input type="text"  name="gender" required></td>
                         </tr>
                         <tr>
                             <td><label for="">Age :</label></td>
-                            <td><input type="number" placeholder="Your Age" required></td>
+                            <td><input type="number" name="age" required></td>
                         </tr>
                         <tr>
                             <td><label for=""> Specialization:</label></td>
-                            <td><input type="text" placeholder="Specialization" required></td>
+                            <td><input type="text" name="specialization" required></td>
                         </tr>
                         <tr>
                             <td><label for="">Expert at : </label></td>
-                            <td><input type="text" placeholder="expert at" required></td>
+                            <td><input type="text" name="expert_at" required></td>
                         </tr>
                         <tr>
                             <td><label for="">Years of experience :</label></td>
-                            <td><input type="number" placeholder="Years of experience" required></td>
+                            <td><input type="number" name="years_of_experience" required></td>
                         </tr>
                     </table>
+                    <button type="submit" class="submit-button">Register</button>
                 </fieldset>
             </form>
         </div>
-        <a href="dashdoc.html"><button class="btn">Signup Now</button></a>
     </section>
 </body>
 </html>
