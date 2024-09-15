@@ -117,4 +117,4 @@ def classes():
 
 @bp.route('/signup')
 def signup():
-    render_template('singup.html')
+    return render_template('singup.html')

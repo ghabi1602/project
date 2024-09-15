@@ -5,7 +5,7 @@ from app.models.student_model import STUDENT
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_user, logout_user, current_user
 
-bp = Blueprint('auth', __name__, url_prefix='/auth', template_folder="templates", static_folder="static")
+bp = Blueprint('auth', __name__, url_prefix="/auth", template_folder="templates", static_folder="static")
 
 #function that handles professor registration
 @bp.route('/register/prof', methods=["GET", "POST"])
@@ -42,7 +42,7 @@ def register_prof():
         db.session.add(new_prof)
         db.session.commit()
         flash('Successful Registration :)')
-        return redirect(url_for('login.prof'))
+        return redirect(url_for('login'))
 
     return render_template('register_prof.html')
 
@@ -80,7 +80,7 @@ def register_std():
         db.session.add(new_student)
         db.session.commit()
         flash('Successful Registration :)')
-        return redirect(url_for('login_std'))
+        return redirect(url_for('login'))
 
     return render_template('register_std.html')
 
