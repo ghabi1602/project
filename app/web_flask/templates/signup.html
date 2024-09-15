@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body style="background-image: url(imgs/15.jpg); background-size:cover">
+<body style="background-image: url(static/imgs/15.jpg); background-size:cover">
     <header class="header">
         <nav class="nav">
             <img src="static/imgs/tvss.png" alt="logo" class="logo">
@@ -28,8 +28,8 @@
         </nav>
     </header>
     <div>
-        <a href="register_prof.html"><button class="sgn">I'm a Teacher</button></a>
-        <a href="register_std.html"><button class="sgn">I'm a Student </button></a>
+        <a href="{{ url_for('auth.register_prof') }}"><button class="sgn">I'm a Teacher</button></a>
+        <a href="{{ url_for('auth.register_std') }}"><button class="sgn">I'm a Student </button></a>
     </div>
 </body>
 </html>
