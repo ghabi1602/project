@@ -410,6 +410,19 @@ header.sticky{
 .btn2:hover{
     transform: scale(0.9) translateY(-5px);
 }
+.btn3{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: var(--p-font);
+    font-weight: 200;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 30px;
+    transition: all .40s ease;
+}
+.btn3:hover{
+    transform: scale(0.9) translateY(-5px);
+}
 .classes{
     background: url(imgs/9.jpg);
     background-size: cover;
@@ -564,6 +577,67 @@ legend{
     width: 100%;
     margin-top: 10%;
     background-color: var(--main-color);
+}
+.container2 {
+    display: grid;
+    grid-template-columns: 14rem auto 14rem;
+    gap: 1.8rem;
+    width: 96%;
+    margin: 0 auto;
+}
+.container2 div ul  li {
+    list-style: none;
+    text-align: center;
+}
+.container2 h2{
+    text-align: center;
+    text-decoration: wavy;
+}
+.dashboard{
+    height: 2vh;
+    top: 2rem;
+}
+.dashboard a{
+    transition: all .1s ease-in;
+    color: var(--text-color);
+    align-items: first baseline;
+    height: 2.2rem;
+}
+.dashboard  a:hover{
+    color: var(--main-color);
+    transform: translateX(10px);
+}
+.dashboard a span{
+    font-size: 1.8rem;
+    transition: all .1s ease-in;
+}
+.dashboard li:last-child{
+    position: absolute;
+    bottom: 1rem;
+    width: 20%;
+}
+.profile-photo{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 90%;
+}
+.departement a i{
+    width: 100%;
+}
+.departement h2{
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--main-color);
+}
+.departement p{
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+.dash ul li {
+    margin-top: 10%;
 }
 @media (max-width:1410px){
     header{
