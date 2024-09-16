@@ -23,8 +23,8 @@ def register_prof():
         yoe = request.form.get('years_of_experience')
 
         if PROFESSOR.query.filter_by(email=email).first():
-            flash('Email address already in use :(')
-            return redirect(url_for('register_prof'))
+            flash('Email address already in use')
+            return redirect(url_for('auth.register_prof'))
 
         hashed_password = generate_password_hash(password)
 
@@ -41,14 +41,14 @@ def register_prof():
 
         db.session.add(new_prof)
         db.session.commit()
-        flash('Successful Registration :)')
+        flash('Successful Registration')
         return redirect(url_for('routes.home'))
 
     return render_template('register_prof.html')
 
 
 # function that handles student registration
-@bp.route('/register/student', methods=["GET", "POST"])
+@bp.route('/register/std', methods=["GET", "POST"])
 def register_std():
     """student registration function"""
     if request.method == "POST":
@@ -62,8 +62,8 @@ def register_std():
         interested_at = request.form.get('interested_at')
 
         if STUDENT.query.filter_by(email=email).first():
-            flash('Email address already in use :(')
-            return redirect(url_for('register_std'))
+            flash('Email address already in use')
+            return redirect(url_for('auth.register_std'))
 
         hashed_password = generate_password_hash(password)
 
@@ -76,11 +76,10 @@ def register_std():
                               field_of_studies=field_of_studies,
                               interested_at=interested_at)
 
-
         db.session.add(new_student)
         db.session.commit()
-        flash('Successful Registration :)')
-        return redirect(url_for('login_std'))
+        flash('Successful Registration')
+        return redirect(url_for('routes.home'))
 
     return render_template('register_std.html')
 
@@ -97,20 +96,20 @@ def login():
         if std:
             if check_password_hash(std.password, password):
                 login_user(std)
-                flash('Login successful :)')
+                flash('Login successful')
                 current_user.is_online = True
                 db.session.commit()
                 session['user_type'] = 'std'
                 return redirect(url_for('routes.std_dash'))
             else:
-                flash('Password incorrect:( Try again')
+                flash('Password incorrect..Try again')
                 return redirect(url_for('routes.home'))
 
         prof = PROFESSOR.query.filter_by(email=email).first()
         if prof:
             if check_password_hash(prof.password, password):
                 login_user(prof)
-                flash('Login successful :)')
+                flash('Login successful')
                 current_user.is_online = True
                 db.session.commit()
                 session['user_type'] = 'prof'
