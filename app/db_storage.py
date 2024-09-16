@@ -12,7 +12,7 @@ def init_db(app):
         from .models.student_model import STUDENT
         from .models.prof_model import PROFESSOR
         from .models.course import CLASSES
-        from .models.enrollment import ENROLLMENT
+        #from .models.association import enrollment
 
         # Create all tables based on the models
         db.create_all()

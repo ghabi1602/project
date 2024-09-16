@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models.student_model import STUDENT
 from app.models.prof_model import PROFESSOR
 from app.models.course import CLASSES
-from app.models.enrollment import ENROLLMENT
+from app.models.association import enrollment
 
 
 # Initialize a blueprint
@@ -103,7 +103,7 @@ def classes():
             name = class_.name
             professor = PROFESSOR.query.get(class_.professor_id)
             prof_name = professor.fullname if professor else "unknown"
-            num_std = ENROLLMENT.query.filter_by(class_id=class_.id).count()
+            num_std = enrollment.query.filter_by(class_id=class_.id).count()
             class_data.update({
                 'name': name,
                 'prof_name': prof_name,

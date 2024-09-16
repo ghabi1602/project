@@ -1,7 +1,7 @@
 from .base_model import BaseModel
 from flask_login import UserMixin
 from ..db_storage import db
-
+from .association import enrollment
 
 class STUDENT(UserMixin, BaseModel):
     __tablename__ = "student"
@@ -13,4 +13,4 @@ class STUDENT(UserMixin, BaseModel):
     highest_school_level = db.Column(db.String(100), nullable=False)
     field_of_studies = db.Column(db.String(100), nullable=False)
     interested_at = db.Column(db.String(300), nullable=False)
-    classes = db.relationship('CLASSES', secondary="enrollment", backref='stds', cascade="all, save-update", lazy=True)
+    classes = db.relationship('CLASSES', secondary=enrollment, backref='stds', cascade="all, save-update", lazy=True)
