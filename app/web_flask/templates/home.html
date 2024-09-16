@@ -52,7 +52,7 @@
                         </span>
                         <a href="" class="forgot_pw">Forgot password ?</a>
                     </div>
-                    <button class="button">Login Now</button>
+                    <a href="{{ url_for('auth.login') }}"><button class="button">Login now</button></a>
                     <div class="login_signup">Don't have an account? <a href="{{ url_for('routes.signup') }}" id="Signup">Signup</a></div>
                 </form>
             </div>

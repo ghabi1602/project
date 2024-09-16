@@ -103,8 +103,8 @@ def login():
                 session['user_type'] = 'std'
                 return redirect(url_for('routes.std_dash'))
             else:
-                flash('Password is incorrect :(')
-                return redirect(url_for('login'))
+                flash('Password incorrect:( Try again')
+                return redirect(url_for('routes.home'))
 
         prof = PROFESSOR.query.filter_by(email=email).first()
         if prof:
@@ -117,12 +117,12 @@ def login():
                 return redirect(url_for('routes.prof_dash'))
             else:
                 flash('Password is incorrect :(')
-                return redirect(url_for('login'))
+                return redirect(url_for('routes.home'))
 
         flash('Wrong Email :(')
-        return redirect(url_for('login'))
+        return redirect(url_for('routes.home'))
 
-    return render_template('login.html')
+    return redirect(url_for('routes.home'))
 
 
 @bp.route('/logout', methods=["GET", "POST"])
