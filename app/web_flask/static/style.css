@@ -564,6 +564,9 @@ header.sticky{
     width: 70%;
     text-align: center;
 }
+.container1 fieldset{
+    padding-bottom: 40px;
+}
 legend{
     text-decoration: wavy;
     color: rgb(0, 0, 0);
@@ -577,6 +580,7 @@ legend{
     width: 100%;
     margin-top: 10%;
     background-color: var(--main-color);
+    height: 40px;
 }
 .container2 {
     display: grid;
@@ -621,20 +625,23 @@ legend{
     height: 3rem;
     border-radius: 50%;
     overflow: hidden;
-    margin-left: 90%;
+    margin-left: 40%;
+    margin-top: 10px;
 }
 .departement a i{
-    width: 100%;
+    margin-left: 40%;
 }
 .departement h2{
     margin-bottom: 30px;
     text-align: center;
     color: var(--main-color);
+    margin-left: 5%;
 }
 .departement p{
     text-align: center;
     color: var(--text-color);
     margin-bottom: 20px;
+    margin-left: 60%;
 }
 .dash ul li {
     margin-top: 10%;
