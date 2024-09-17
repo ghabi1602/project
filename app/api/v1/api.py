@@ -109,7 +109,7 @@ def delete_std():
         return jsonify({'message': 'Error deleting student', 'error': str(e)}), 500
 
 
-@bp.route('/api/professor/class', methods=['POST', 'GET'])
+@bp.route('/api/professor/class', methods=['POST'])
 @login_required
 def create_class():
     """API to create a new class"""

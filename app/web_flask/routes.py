@@ -108,10 +108,10 @@ def stds():
     return render_template('students.html', data=data)
 
 
-@bp.route('/classes')
+"""@bp.route('/classes')
 @login_required
 def classes():
-    """route that retrieves a list of available classes"""
+    route that retrieves a list of available classes
     user_type = "professor"
     students = STUDENT.query(STUDENT.id).all()
     if current_user.id in students:
@@ -135,9 +135,15 @@ def classes():
 
         return render_template('classes.html', data=data, user_type=user_type)
     return render_template('No_class.html')
-
+"""
 
 @bp.route('/signup')
 def signup():
     """renders to the signup page"""
     return render_template('signup.html')
+
+
+@bp.route('/professor/create_class')
+@login_required
+def create_class():
+    return render_template('addClass.html')

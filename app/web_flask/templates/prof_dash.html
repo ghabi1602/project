@@ -26,42 +26,8 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 " style="background-image: url(imgs/9.jpg); background-size:cover">
             <div class="categories-content">
-                <div class="box">
-                    <img src="static/imgs/p.jfif" style="height: 50px; width:50px">
-                    <h3>Python </h3>
-                    <p>2 Classes</p>
-                </div>
-                <div class="box">
-                    <img src="static/imgs/angular.png" style="height: 50px; width:50px">
-                    <h3>Angular </h3>
-                    <p>3 Classes</p>
-                </div>
-                <div class="box">
-                    <img src="static/imgs/js.png" style="height: 50px; width:50px">
-                    <h3>JS</h3>
-                    <p>5 Classes</p>
-                </div>
-                
-            </div>
-            <div class="categories-content">
-                <div class="box">
-                    <img src="static/imgs/html.png" style="height: 50px; width:50px">
-                    <h3>HTML </h3>
-                    <p>2 Classes</p>
-                </div>
-                <div class="box">
-                    <img src="static/imgs/django.png" style="height: 50px; width:50px">
-                    <h3>Django </h3>
-                    <p>3 Classes</p>
-                </div>
-                <div class="box">
-                    <img src="static/imgs/css.png" style="height: 50px; width:50px">
-                    <h3>CSS</h3>
-                    <p>5 Classes</p>
-                </div>
-            </div>
             <div class="main-btn">
-                <a href="addClass.html" class="btn2">Add Class</a>
+                <a href="{{ url_for('routes.create_class') }}"><button class="sgn">Create Class</button></a>
             </div>
         </div>
         <div class="departement" style="background-image: url(static/imgs/12.jpg);">

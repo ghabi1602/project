@@ -38,6 +38,8 @@
                         <img src="{{ url_for('static', filename='imgs/' + cls.field + '.jfif') }}" alt="{{ cls.field }} logo">
                         <h3>{{ cls.name }} </h3>
                         <p>{{ cls.field }}</p>
+                        <p>{{ cls.max_std }}/{{cls.number_of_students}} students</p>
+                        <p>{{ cls.prof_name }}</p>
                     </div>
                 {% endfor %}
             </div>
@@ -45,7 +47,8 @@
         </div>
         <div class="departement" style="background-image: url(static/imgs/12.jpg);">
             <img src="static/imgs/34.jpg" alt="std" class="profile-photo"> <br> <br>
-            <h2>Asma</h2>
+            <h2>{{ student.fullname }}</h2>
+            <h3>Interested at:</h3>
             <p>Html</p>
             <p>CSS</p>
             <p>JS</p>
