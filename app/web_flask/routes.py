@@ -37,7 +37,7 @@ def prof_dash():
             max_std = class_.maximum_number_of_students
             professor = PROFESSOR.query.get(class_.professor_id)
             prof_name = professor.fullname if professor else "unknown"
-            num_std = enrollment.query.filter_by(class_id=class_.id).count()
+            num_std = len(class_.stds)
             class_data.update({
                 'name': name,
                 'prof_name': prof_name,
@@ -64,7 +64,7 @@ def std_dash():
             max_std = class_.maximum_number_of_students
             professor = PROFESSOR.query.get(class_.professor_id)
             prof_name = professor.fullname if professor else "unknown"
-            num_std = enrollment.query.filter_by(class_id=class_.id).count()
+            num_std = len(class_.stds)
             class_data.update({
                 'name': name,
                 'prof_name': prof_name,
@@ -136,6 +136,7 @@ def classes():
         return render_template('classes.html', data=data, user_type=user_type)
     return render_template('No_class.html')
 """
+
 
 @bp.route('/signup')
 def signup():

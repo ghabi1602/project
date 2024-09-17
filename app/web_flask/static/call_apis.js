@@ -1,7 +1,7 @@
 //script that creates a new class
 
 // Define the API endpoint
-const apiUrl = 'http://localhost:5001/api/professor/class';
+const apiUrl = '/api/professor/class';
 
 // Create a new class
 async function createClass(classData) {
@@ -35,7 +35,7 @@ async function createClass(classData) {
 document.getElementById('add_class').addEventListener('click', function() {
   // Get form data
   const className = document.getElementById('name').value;
-  const professorField = parseInt(document.getElementById('field').value, 10);
+  const professorField = document.getElementById('field').value;
   const classMaxStd = document.getElementById('max_std').value;
 
   // Create class data object

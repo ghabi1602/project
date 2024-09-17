@@ -35,7 +35,7 @@
             <div class="categories-content">
                 {% for cls in data %}
                     <div class="box">
-                        <img src="{{ url_for('static', filename='imgs/' + cls.field + '.jfif') }}" alt="{{ cls.field }} logo">
+                        <img src="{{ url_for('static', filename='imgs/' + cls.field + '.png') }}" alt="{{ cls.field }} logo">
                         <h3>{{ cls.name }} </h3>
                         <p>{{ cls.field }}</p>
                         <p>{{ cls.max_std }}/{{cls.number_of_students}} students</p>

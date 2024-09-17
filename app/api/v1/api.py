@@ -122,7 +122,7 @@ def create_class():
         new_class = CLASSES(
             name=data['name'],
             field=data['field'],
-            maximum_number_of_students=data['maximum_number_of_students'],
+            maximum_number_of_students=int(data['maximum_number_of_students']),
             professor_id=current_user.id
         )
 
