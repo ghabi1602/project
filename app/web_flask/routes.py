@@ -26,14 +26,18 @@ def about():
 @login_required
 def prof_dash():
     """route to the professor dashboard"""
-    return render_template('prof_dash.html')
+    professor = PROFESSOR.query.get_or_404(current_user.id)
+    prof_classes = professor.classes
+    return render_template('prof_dash.html', professor=professor, prof_classes=prof_classes)
 
 
 @bp.route('/std_dash')
 @login_required
 def std_dash():
     """route to the student dashboard"""
-    return render_template('std_dash.html')
+    student = STUDENT.query.get_or_404(current_user.id)
+    std_classes = student.classes
+    return render_template('std_dash.html', student=student, std_classes=std_classes)
 
 
 @bp.route('/std_dash/profs')
@@ -66,24 +70,6 @@ def stds():
         })
         data.append(std)
     return render_template('students.html', data=data)
-
-
-@bp.route('/prof_dash/profile')
-@login_required
-def prof_profile():
-    """route to professor profile"""
-    professor = PROFESSOR.query.get_or_404(current_user.id)
-    prof_classes = professor.classes
-    return render_template('prof_profile.html', professor=professor, prof_classes=prof_classes)
-
-
-@bp.route('/std_dash/profile')
-@login_required
-def std_profile():
-    """route to std profile"""
-    student = STUDENT.query.get_or_404(current_user.id)
-    std_classes = student.classes
-    return render_template('std_profile.html', student=student, std_classes=std_classes)
 
 
 @bp.route('/classes')

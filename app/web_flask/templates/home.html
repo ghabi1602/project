@@ -60,6 +60,13 @@
                         <a href="" class="forgot_pw">Forgot password ?</a>
                     </div>
                     <a href="{{ url_for('auth.login') }}"><button class="button" type="submit">Login now</button></a>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="flash-message">
+                                {{ messages[0] }}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
                     <div class="login_signup">Don't have an account? <a href="{{ url_for('routes.signup') }}" id="Signup">Signup</a></div>
                 </form>
             </div>
