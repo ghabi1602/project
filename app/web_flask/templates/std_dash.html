@@ -33,11 +33,13 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 ">
             <div class="categories-content">
-                <div class="box">
-                    <img src="static/imgs/p.jfif" style="height: 50px; width:50px">
-                    <h3>Python </h3>
-                    <p>2 Classes</p>
-                </div>
+                {% for cls in data %}
+                    <div class="box">
+                        <img src="{{ url_for('static', filename='imgs/' + cls.field + '.jfif') }}" alt="{{ cls.field }} logo">
+                        <h3>{{ cls.name }} </h3>
+                        <p>{{ cls.field }}</p>
+                    </div>
+                {% endfor %}
             </div>
             
         </div>

@@ -27,8 +27,26 @@ def about():
 def prof_dash():
     """route to the professor dashboard"""
     professor = PROFESSOR.query.get_or_404(current_user.id)
-    prof_classes = professor.classes
-    return render_template('prof_dash.html', professor=professor, prof_classes=prof_classes)
+    all_classes = CLASSES.query.all()
+    data = []
+    if all_classes:
+        for class_ in all_classes:
+            class_data = {}
+            name = class_.name
+            field = class_.field
+            max_std = class_.maximum_number_of_students
+            professor = PROFESSOR.query.get(class_.professor_id)
+            prof_name = professor.fullname if professor else "unknown"
+            num_std = enrollment.query.filter_by(class_id=class_.id).count()
+            class_data.update({
+                'name': name,
+                'prof_name': prof_name,
+                'field': field,
+                'number_of_students': num_std,
+                'max_std': max_std
+            })
+            data.append(class_data)
+    return render_template('prof_dash.html', professor=professor, data=data)
 
 
 @bp.route('/std_dash')
@@ -36,8 +54,26 @@ def prof_dash():
 def std_dash():
     """route to the student dashboard"""
     student = STUDENT.query.get_or_404(current_user.id)
-    std_classes = student.classes
-    return render_template('std_dash.html', student=student, std_classes=std_classes)
+    all_classes = CLASSES.query.all()
+    data = []
+    if all_classes:
+        for class_ in all_classes:
+            class_data = {}
+            name = class_.name
+            field = class_.field
+            max_std = class_.maximum_number_of_students
+            professor = PROFESSOR.query.get(class_.professor_id)
+            prof_name = professor.fullname if professor else "unknown"
+            num_std = enrollment.query.filter_by(class_id=class_.id).count()
+            class_data.update({
+                'name': name,
+                'prof_name': prof_name,
+                'field': field,
+                'number_of_students': num_std,
+                'max_std': max_std
+            })
+            data.append(class_data)
+    return render_template('std_dash.html', student=student, data=data)
 
 
 @bp.route('/std_dash/profs')
