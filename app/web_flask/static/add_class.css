@@ -1,0 +1,116 @@
+/* General Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/imgs/12.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+/* Header Styling */
+.header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for header */
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Container Styling */
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Form Styling */
+form {
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fieldset and Legend Styling */
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-spacing: 0;
+    margin-bottom: 20px;
+}
+
+td {
+    padding: 10px;
+}
+
+label {
+    font-size: 16px;
+}
+
+/* Input Styling */
+input[type="text"], input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#add_class {
+    background-color: #007bff;
+}
+
+#add_class:hover {
+    background-color: #0056b3;
+}
+
+.sgn {
+    background-color: #6c757d;
+}
+
+.sgn:hover {
+    background-color: #5a6268;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+}
+
