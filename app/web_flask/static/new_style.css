@@ -1,0 +1,207 @@
+/* style.css */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.dash {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.dashboard {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard li {
+    margin: 15px 0;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.dashboard i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.flash-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.categories-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.box img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.box h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.box h4 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.box p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.departement {
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.departement .profile-photo {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #ffffff;
+}
+
+.departement h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.departement h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.departement p {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        flex-direction: column;
+    }
+
+    .dash {
+        max-width: 100%;
+    }
+
+    .categories-content {
+        flex-direction: column;
+    }
+
+    .box {
+        max-width: 100%;
+    }
+}
+
+/* Add this to your existing style.css */
+
+/* Style for the Join button */
+.join-btn {
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* Text color */
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Space above the button */
+}
+
+/* Hover effect */
+.join-btn:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Ensure button is aligned properly */
+.box {
+    position: relative;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Ensure the button does not push content */
+.box .join-btn {
+    margin-top: 10px;
+}
+
+.create-class-btn {
+    display: inline-block;
+    background-color: #28a745;  /* Green button */
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;  /* Space below the button */
+}
+
+.create-class-btn:hover {
+    background-color: #218838;  /* Darker green on hover */
+    transform: scale(1.05);  /* Slightly enlarges the button on hover */
+}
+
+.create-class-btn:active {
+    transform: scale(0.98);  /* Slightly compresses on click */
+}
