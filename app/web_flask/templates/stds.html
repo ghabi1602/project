@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new_style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -13,47 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <img src="static/imgs/tvss.png" alt="logo" class="logo">
-            <ul class="nav_items">
-                <li class="nav_item">
-                    <a href="index.html" class="nav_link">Home</a>
-                    <a href="#about" class="nav_link">About</a>
-                    <a href="#classes" class="nav_link">Classes</a>
-                    <a href="#contact" class="nav_link">Contact</a>
-                </li>
-            </ul>
-            <div></div>
-        </nav>
-    </header>
-    <br> <br>
-    <div class="classes-content">
-        <div class="row">
-            <img src="static/imgs/37.jpeg" alt="" >
-            <div class="classes-text">
-                <h5>Amin</h5>
-                <h4>HTML </h4>
-                <h6>msg@gmail.com</h6>
+    <div class="background_frame">
+        {% for std in students %}
+            <div class="box">
+                <img src="/static/imgs/34.jpg" alt="logo" class="prof_logo">
+                <div class="box-data">
+                    <p>{{ std.fullname }}</p>
+                    <p>{{ std.age }}</p>
+                    <p>{{ std.email }}</p>
+                    <p>{{ std.highest_school_level }}</p>
+                    <p>{{ std.field_of_studies }}</p>
+                    <p>{{ std.interested_at }}</p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/37.jpeg" alt="">
-            <div class="classes-text">
-                <h5>Amin</h5>
-                <h4>Python</h4>
-                <h6>msg@gmail.com</h6>
-                
-            </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/37.jpeg" alt="">
-            <div class="classes-text">
-                <h5>Amin</h5>
-                <h4>MySql</h4>
-                <h6>msg@gmail.com</h6>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </body>
 </html>

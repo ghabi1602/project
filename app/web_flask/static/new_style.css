@@ -222,7 +222,7 @@ body {
     border-radius: 8px; /* Rounded corners */
     cursor: pointer;
     margin-top: 400px; /* Adjust top margin */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    background-color 0.3s, color 0.3s; /* Smooth transitions */
     display: block; /* Ensures button is treated as a block element */
     width: fit_content; /* Button width fits its content */
     text-decoration: none;

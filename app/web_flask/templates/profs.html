@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new_style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -13,144 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <img src="static/imgs/tvss.png" alt="logo" class="logo">
-            <ul class="nav_items">
-                <li class="nav_item">
-                    <a href="index.html" class="nav_link">Home</a>
-                    <a href="#about" class="nav_link">About</a>
-                    <a href="#classes" class="nav_link">Classes</a>
-                    <a href="#contact" class="nav_link">Contact</a>
-                </li>
-            </ul>
-            <div></div>
-        </nav>
-    </header>
-    <br> <br>
-    <div class="classes-content">
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="" >
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>HTML CSS JS</h4>
-                <h6>5 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
+    <div class="background_frame">
+        {% for prof in professors %}
+            <div class="box">
+                <img src="/static/imgs/35.jpg" alt="logo" class="prof_logo">
+                <div class="box-data">
+                    <p>{{ prof.fullname }}</p>
+                    <p>{{ prof.age }}</p>
+                    <p>{{ prof.email }}</p>
+                    <p>{{ prof.specialization }}</p>
+                    <p>{{ prof.expert_at }}</p>
+                    <p>{{ prof.years_of_experience }}</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="">
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>Python</h4>
-                <h6>7 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="">
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>MySql</h4>
-                <h6>4 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="classes-content">
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="" >
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>HTML CSS JS</h4>
-                <h6>6 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="">
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>Python</h4>
-                <h6>9 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <img src="static/imgs/35.jpg" alt="">
-            <div class="classes-text">
-                <h5>Mohammed</h5>
-                <h4>MySql</h4>
-                <h6>5 Years Of Experience</h6>
-                <div class="rating">
-                    <div class="star">
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                        <a href="#"><i class='bx bxs-star'></i></a>
-                    </div>
-                    <div class="review">
-                        <p>{7 review}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </body>
 </html>

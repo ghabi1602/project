@@ -96,19 +96,7 @@ def stds():
     students = STUDENT.query.all()
     if not students:
         return "No students found yet", 404
-    data = []
-    for student in students:
-        std = {}
-        fullname = student.fullname
-        email = student.email
-        cls = student.classes
-        std.update({
-            'fullname': fullname,
-            'email': email,
-            'cls': cls
-        })
-        data.append(std)
-    return render_template('students.html', data=data)
+    return render_template('students.html', students=students)
 
 
 """@bp.route('/classes')
