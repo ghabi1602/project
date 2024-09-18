@@ -46,7 +46,8 @@ def prof_dash():
                 'max_std': max_std
             })
             data.append(class_data)
-    return render_template('prof_dash.html', professor=professor, data=data)
+        interest = professor.expert_at.split()
+    return render_template('prof_dash.html', professor=professor, data=data, interest=interest)
 
 
 @bp.route('/std_dash')
@@ -73,7 +74,8 @@ def std_dash():
                 'max_std': max_std
             })
             data.append(class_data)
-    return render_template('std_dash.html', student=student, data=data)
+        interest = student.interested_at.split()
+    return render_template('std_dash.html', student=student, data=data, interest=interest)
 
 
 @bp.route('/std_dash/profs')

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='new_style.css') }}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -17,30 +17,36 @@
         <div class="col-lg-2 col-md-4 col-sm-6  dash ">
             <div><img src="static/imgs/tvss.png" alt="logo" class="logo"></div>
             <ul class="dashboard">
-                <li><a href="#"><i class='bx bx-book-content'></i>  Classes</a></li>
                 <li><li><a href=""><i class='bx bx-male-female'></i>  Students</li></a></li>
                 <li><a href="formS.html"><i class='bx bx-cog' ></i>   Update</li></a>
                 <li><a href=""><i class='bx bx-chat'></i> Chat</a></li>
-                <li><a href="index.html"><i class='bx bx-log-out'></i>   Log out</a></li>
+                <li><a href="{{ url_for('auth.logout') }}"><i class='bx bx-log-out'></i>   Log out</a></li>
             </ul>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 " style="background-image: url(/static/imgs/9.jpg); background-size:cover">
             <div class="categories-content">
-                <div class="main-btn">
-                <a href="{{ url_for('routes.create_class') }}"><button class="sgn">Create Class</button></a>
-                </div>
+                <button class="create-class-btn">Create New Class</button>
+               {% for cls in data %}
+                    <div class="box">
+                        <img src="{{ url_for('static', filename='imgs/' + cls.field + '.png') }}" alt="{{ cls.field }} logo">
+                    <div class="box-content">
+                        <h2>{{ cls.name }} </h2>
+                        <h3>{{ cls.field }}</h3>
+                        <h4>{{ cls.number_of_students }}/{{ cls.max_std }}</h4>
+                        <h5>{{ cls.prof_name }}</h5>
+                    </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="departement" style="background-image: url(/static/imgs/12.jpg);">
+        <div class="departement" style="background-image: url(/static/imgs/education11.avif);">
             <img src="static/imgs/36.jpg" alt="std" class="profile-photo"> <br> <br>
-            <h2>Abbdsattar</h2>
-            <p>Expert At:</p>
-            <p>Python</p>
-            <p>JS</p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p><br>
+            <p>{{ professor.fullname }}</p>
+            <p>Expertise: </p>
+            {% for element in interest %}
+                <p>{{ element }}</p>
+            {% endfor %}
+            <br>
         </div>
     </section>
     
