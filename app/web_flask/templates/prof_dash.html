@@ -17,16 +17,32 @@
         <div class="col-lg-2 col-md-4 col-sm-6  dash ">
             <div><img src="static/imgs/tvss.png" alt="logo" class="logo"></div>
             <ul class="dashboard">
-                <li><li><a href=""><i class='bx bx-male-female'></i>  Students</li></a></li>
-                <li><a href="formS.html"><i class='bx bx-cog' ></i>   Update</li></a>
+                <li><li><a href="profs.html"><i class='bx bx-male-female'></i>  Students</li></a></li>
+                <li><a href="formS.html"><i class='bx bx-cog' ></i>  Update</li></a>
                 <li><a href=""><i class='bx bx-chat'></i> Chat</a></li>
                 <li><a href="{{ url_for('auth.logout') }}"><i class='bx bx-log-out'></i>   Log out</a></li>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash-message">
+                            {{ messages[0] }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
             </ul>
+            <div class="button-container">
+                <a href="{{ url_for('routes.create_class') }}">
+                    <button class="middle-button">New Class</button>
+                </a>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 " style="background-image: url(/static/imgs/9.jpg); background-size:cover">
+        <div class="col-lg-4 col-md-4 col-sm-4 " style="background-image: url(static/imgs/education2.webp);background-size:cover">
+            <div class="button-container">
+                <a href="{{ url_for('routes.create_class') }}">
+                    <button class="middle-button">New Class</button>
+                </a>
+            </div>
             <div class="categories-content">
-                <button class="create-class-btn">Create New Class</button>
-               {% for cls in data %}
+                {% for cls in data %}
                     <div class="box">
                         <img src="{{ url_for('static', filename='imgs/' + cls.field + '.png') }}" alt="{{ cls.field }} logo">
                     <div class="box-content">
@@ -39,16 +55,16 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="departement" style="background-image: url(/static/imgs/education11.avif);">
+        <div class="departement" style="background-image: url(static/imgs/education4.jpg);">
             <img src="static/imgs/36.jpg" alt="std" class="profile-photo"> <br> <br>
-            <p>{{ professor.fullname }}</p>
-            <p>Expertise: </p>
-            {% for element in interest %}
+            <h2>{{ professor.fullname }}</h2>
+            <h3>Expertise:</h3>
+            {% for element in expertise %}
                 <p>{{ element }}</p>
             {% endfor %}
             <br>
         </div>
     </section>
-    
+
 </body>
 </html>

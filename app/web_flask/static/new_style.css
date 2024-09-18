@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
 .container2 {
@@ -63,7 +64,14 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    width: 800px;
 }
+
+/*.categories-content {
+    width: 800px; /* Adjust this value as needed for your layout
+    margin: 0 auto; /* Centers the container horizontally
+    padding-top: 80px;
+}*/
 
 .box {
     background: #ffffff;
@@ -183,25 +191,60 @@ body {
     margin-top: 10px;
 }
 
-.create-class-btn {
-    display: inline-block;
-    background-color: #28a745;  /* Green button */
-    color: white;
-    padding: 10px 15px;
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* kkkk */
+.categories-content {
+    position: relative; /* Allows positioning of children absolutely */
+    padding-top: 80px; /* Adds space for the button above the classes */
+}
+
+.button-container {
+    position: absolute;
+    top: 20px; /* Adjust this value to position the button from the top of the .categories-content */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Ensure it takes up the full width of the container */
+    text-align: center; /* Center the button inside the container */
+}
+
+
+.middle-button {
+    padding: 10px 20px;
     font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    background-color: transparent;
+    color: #007bff; /* Button text color */
+    border: 2px solid #007bff; /* Outline color */
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-bottom: 20px;  /* Space below the button */
+    margin-top: 400px; /* Adjust top margin */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    display: block; /* Ensures button is treated as a block element */
+    width: fit_content; /* Button width fits its content */
+    text-decoration: none;
+    box-shadow: none; /* Ensure no box shadow is applied that might affect appearance */
 }
 
-.create-class-btn:hover {
-    background-color: #218838;  /* Darker green on hover */
-    transform: scale(1.05);  /* Slightly enlarges the button on hover */
 }
 
-.create-class-btn:active {
-    transform: scale(0.98);  /* Slightly compresses on click */
+.middle-button:hover {
+    background-color: #007bff; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+.button-container {
+    margin-top: 20px; /* Adds space above the button */
+    margin-left: 120px; /* Adjust if needed for left alignment */
+}
+
+
+
+
+.classes-container {
+    margin-top: 80px; /* Ensure space below the button */
+    padding-top: 50px; /* Adjust if needed for additional spacing */
 }

@@ -29,6 +29,7 @@ def prof_dash():
     professor = PROFESSOR.query.get_or_404(current_user.id)
     all_classes = CLASSES.query.all()
     data = []
+    expertise = []
     if all_classes:
         for class_ in all_classes:
             class_data = {}
@@ -46,8 +47,8 @@ def prof_dash():
                 'max_std': max_std
             })
             data.append(class_data)
-        interest = professor.expert_at.split()
-    return render_template('prof_dash.html', professor=professor, data=data, interest=interest)
+        expertise = professor.expert_at.split()
+    return render_template('prof_dash.html', professor=professor, data=data, expertise=expertise)
 
 
 @bp.route('/std_dash')
