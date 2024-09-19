@@ -17,7 +17,7 @@
         <div class="col-lg-2 col-md-4 col-sm-6  dash ">
             <div><img src="static/imgs/tvss.png" alt="logo" class="logo"></div>
             <ul class="dashboard">
-                <li><li><a href="profs.html"><i class='bx bx-male-female'></i>  Professors</li></a></li>
+                <li><li><a href="{{ url_for('routes.profs') }}"><i class='bx bx-male-female'></i>  Professors</li></a></li>
                 <li><a href="formS.html"><i class='bx bx-cog' ></i>  Update</li></a>
                 <li><a href=""><i class='bx bx-chat'></i> Chat</a></li>
                 <li><a href="{{ url_for('auth.logout') }}"><i class='bx bx-log-out'></i>   Log out</a></li>

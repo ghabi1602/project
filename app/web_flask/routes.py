@@ -86,7 +86,7 @@ def profs():
     professors = PROFESSOR.query.all()
     if not professors:
         return "No professors found yet", 404
-    return render_template('professors.html', professors=professors)
+    return render_template('profs.html', professors=professors)
 
 
 @bp.route('/prof_dash/stds')
@@ -96,7 +96,7 @@ def stds():
     students = STUDENT.query.all()
     if not students:
         return "No students found yet", 404
-    return render_template('students.html', students=students)
+    return render_template('stds.html', students=students)
 
 
 """@bp.route('/classes')
