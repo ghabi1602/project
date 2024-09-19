@@ -155,12 +155,12 @@ def delete_class(class_id):
 @login_required
 def join_class():
     """api that joins a student to a class"""
-    data = request.json
+    data = request.get_json()
 
-    class_id = data.get_json('class_id')
+    class_id = data.get('class_id')
 
-    cls = CLASSES.query.filter_by(id=class_id)
-    std = STUDENT.query.filter_by(id=current_user.id)
+    cls = CLASSES.query.filter_by(id=class_id).first()
+    std = STUDENT.query.filter_by(id=current_user.id).first()
 
     if not std or not cls:
         return jsonify({"error": "student or class not found"}), 400
