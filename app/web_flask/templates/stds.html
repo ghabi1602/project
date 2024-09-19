@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVS</title>
-    <link rel="stylesheet" href="new_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='new_style.css') }}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -14,19 +14,37 @@
 </head>
 <body>
     <div class="background_frame">
-        {% for std in students %}
-            <div class="box">
-                <img src="/static/imgs/34.jpg" alt="logo" class="prof_logo">
-                <div class="box-data">
-                    <p>{{ std.fullname }}</p>
-                    <p>{{ std.age }}</p>
-                    <p>{{ std.email }}</p>
-                    <p>{{ std.highest_school_level }}</p>
-                    <p>{{ std.field_of_studies }}</p>
-                    <p>{{ std.interested_at }}</p>
-                </div>
-            </div>
-        {% endfor %}
+        <a href="{{ url_for('routes.prof_dash') }}"><button class="back_home-btn">Back home</button></a>
+        <table class="professor-table">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Full Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Highest_school_level</th>
+                    <th>Field</th>
+                    <th>Interest</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for std in students %}
+                    <tr>
+                        {% if std.gender == 'male' %}
+                            <td><img src="/static/imgs/education8.webp" alt="logo" class="prof_logo"></td>
+                        {% else %}
+                            <td><img src="/static/imgs/education7.webp" alt="logo" class="prof_logo"></td>
+                        {% endif %}
+                        <td>{{ std.fullname }}</td>
+                        <td>{{ std.age }}</td>
+                        <td>{{ std.email }}</td>
+                        <td>{{ std.highest_school_level }}</td>
+                        <td>{{ std.field_of_studies }}</td>
+                        <td>{{ std.interested_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

@@ -38,7 +38,7 @@ def prof_dash():
             max_std = class_.maximum_number_of_students
             professor = PROFESSOR.query.get(class_.professor_id)
             prof_name = professor.fullname if professor else "unknown"
-            num_std = len(class_.stds)
+            num_std = len(class_.students)
             class_data.update({
                 'name': name,
                 'prof_name': prof_name,
