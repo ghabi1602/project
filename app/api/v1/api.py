@@ -149,3 +149,27 @@ def delete_class(class_id):
         db.session.rollback()
         flash('error class deletion', 'error')
         return jsonify({'message': 'error class deletion', 'error': str(e)}), 500
+
+
+@bp.route('/classes/join')
+@login_required
+def join_class():
+    """api that joins a student to a class"""
+    class_id = request.get_json('class_id')
+
+    cls = CLASSES.query.filter_by(id=class_id)
+    std = STUDENT.query.filter_by(id=current_user.id)
+
+    if not std or not cls:
+        return jsonify({"error": "student or class not found"}), 400
+
+    if cls in std.classes:
+        return jsonify({"message": "student already joined this class"})
+
+    if len(cls.students) >= cls.maximum_number_of_students:
+        return jsonify({"message": "class is full"}), 400
+
+    std.classes.append(cls)
+    db.session.commit()
+
+    return jsonify({"message": "student successfully joined the class"}), 200
