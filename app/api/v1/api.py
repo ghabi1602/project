@@ -151,11 +151,13 @@ def delete_class(class_id):
         return jsonify({'message': 'error class deletion', 'error': str(e)}), 500
 
 
-@bp.route('/classes/join')
+@bp.route('/api/classes/join', methods=["POST"])
 @login_required
 def join_class():
     """api that joins a student to a class"""
-    class_id = request.get_json('class_id')
+    data = request.json
+
+    class_id = data.get_json('class_id')
 
     cls = CLASSES.query.filter_by(id=class_id)
     std = STUDENT.query.filter_by(id=current_user.id)

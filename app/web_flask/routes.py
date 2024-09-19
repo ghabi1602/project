@@ -72,11 +72,13 @@ def std_dash():
                 'prof_name': prof_name,
                 'field': field,
                 'number_of_students': num_std,
-                'max_std': max_std
+                'max_std': max_std,
+                'id': class_.id
             })
             data.append(class_data)
         interest = student.interested_at.split()
-    return render_template('std_dash.html', student=student, data=data, interest=interest)
+        classes = [cls.name for cls in student.classes]
+    return render_template('std_dash.html', student=student, data=data, interest=interest, classes=classes)
 
 
 @bp.route('/std_dash/profs')

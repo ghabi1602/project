@@ -50,25 +50,10 @@ document.getElementById('add_class').addEventListener('click', function() {
 });
 
 
-// Add event listener to all Join buttons
-document.addEventListener('DOMContentLoaded', function () {
-    const joinButtons = document.querySelectorAll('.join-btn');
-
-    joinButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Get the class_id from the data attribute
-            const classId = this.getAttribute('data-class-id');
-
-            // Call the function to join the class
-            joinClass(classId);
-        });
-    });
-});
-
-// API call to join the class
+// api that creates a join
 async function joinClass(classId) {
     try {
-        const response = await fetch('/classes/join', {
+        const response = await fetch('/api/classes/join', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -88,6 +73,21 @@ async function joinClass(classId) {
         console.error('Error:', error);
     }
 }
+// Add event listener to all Join buttons
+document.addEventListener('DOMContentLoaded', function () {
+    const joinButtons = document.querySelectorAll('.join-btn');
+
+    joinButtons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            // Get the class_id from the data attribute
+            const classId = event.target.getAttribute('data-class-id');
+            console.log(classId)
+
+            // Call the function to join the class
+            joinClass(classId);
+        });
+    });
+});
 
 
 
