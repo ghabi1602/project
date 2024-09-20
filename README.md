@@ -24,13 +24,11 @@ It will be available in Tunisia but with a successful investment it can be an In
 
 * Student Dashboard
 
-  ![std_dash](https://github.com/user-attachments/assets/7e475221-1acc-4157-a6d6-0813bf162d2c)
+  ![std](https://github.com/user-attachments/assets/a22ab414-9adb-424a-9f84-dab6773ded62)
 
 * Professor Dashboard
 
-  ![prof_dash](https://github.com/user-attachments/assets/1ddc8d07-dd16-45ce-8ed7-ddee3bd7b569)
-
-# Demo Video (tap to watch)
+  ![prof](https://github.com/user-attachments/assets/211680c6-3f93-4bd9-8733-b8fdf0c8167d)
 
 # Technologies Used
   * HTML
