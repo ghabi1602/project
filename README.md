@@ -5,8 +5,8 @@
 # Description
 
 TVS is an educational visual platform specialized E-Learning  between professional Trainers , Teachers  and Students.
-In this platform you will be able to get a successful online courses that can help you improve your professional career by using   the platform and study without moving .
-It will be available in Tunisia but with a successful investment it can be an International Educational Platform 
+
+Where you can apply for an educational program via online registration and find any specialty for learning about it along with an associated teachers list and accessibility. You can also check whether the full number of students who are available for each class so you can book it simply and attend the course via live mode. 
 
 # Screenshots
 
